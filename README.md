@@ -2,10 +2,10 @@
 The aim of this project is to ingest incoming Kafka streaming messages and store those dynamically into a database without the mandatory existence of predefined SQL Tables.
 
 ## Table of Contents
-* [General Info](#General Info)  
-* [Technologies](#Technologies)
-* [Getting started](#Getting started) 
-* [Examples of use](#Examples of use) 
+-   [General Info](https://github.com/atheo89/DynamicDatabaseConstractorUsingKafka/blob/master/README.md#General Info)
+-   [Technologies](https://github.com/atheo89/DynamicDatabaseConstractorUsingKafka/blob/master/README.md#Technologies)
+-   [Getting started](https://github.com/atheo89/DynamicDatabaseConstractorUsingKafka/blob/master/README.md#Getting started)
+-   [Examples of use](https://github.com/atheo89/DynamicDatabaseConstractorUsingKafka/blob/master/README.md#Examples of use)
 
 ## General Info
 Data and logs that surround us need to be processed, reprocessed, analyzed and handled. Often in real time. That's what makes the core of the web, IoT, cloud-based and etc living today. And that's why Apache Kafka has come to play a significant role in the message streaming landscape. 
