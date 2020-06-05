@@ -20,7 +20,7 @@ Built with:
  4. JSON 
 
 ## Getting started
-#### Set up Apache kafka Producer
+### Set up Apache kafka Producer
 To be able to getting started the project you need to set up a CloudKarafka instance. CloudKarafka automates every part of the setup - it provides a hosted Kafka solution, meaning that all you need to do is sign up for an account and create an instance. You do not need to set up and install Kafka or care about cluster handling. CloudKarafka can be used for free with the plan Developer Duck. 
 When your instance is created, click on details for your instance. Before you start coding you need to ensure that you can set up a secure connection. To get started with your free instance you need to download the Certificates (connection environment variables) you can find those in the download button from the instances overview page. It is named: Certs, Press the button and save the given .env file into your project. The file contains environmental variables that you need to use in the project.
 
@@ -37,11 +37,11 @@ Furthermore you need to install confluent_kafka library into your project in you
 ```
 pip install confluent_kafka
 ```
-#### Set up Database
+### Set up Database
 Then, you need to set up a Database to store the incoming Kafka streaming messages. This project use phpMyAdmin through wamp. 
 Setup you database in your local machine here: [http://localhost/phpmyadmin/index.php](http://localhost/phpmyadmin/index.php)
 
-#### Python Apache Kafka Consumer, ingests, creates table and insert data
+### Python Apache Kafka Consumer, ingests, creates table and insert data
 Table and column creation
 ```
 # Create table if not exist
@@ -67,7 +67,7 @@ query_insert_data = "insert into `{table}` ({columns}) values ({values});".forma
 cursor.execute(query_insert_data, query_insert_data_values)
 conn.commit()    
 ```
-#### JSON Object
+### JSON Object
 The json object must be like the bellow format structure to be ingested from the algorithm.
 
 ```
@@ -95,11 +95,11 @@ Furthermore, the algorithm is able to handle:
 
 
 ## Examples of use
-#### New entry
+### New entry
 Initially, we don't have any table into our database, it will be created when the Kafka Producer sends a json object to Kafka server cloud to trigger our consumer which always looking for new messages when there is a new message then created a table and columns if not exist into the database or writes the data values in the already existing tables.
 ##### empty database
 ![alt text](images/1.png)
-##### When we try our first entry
+#### When we try our first entry
 ##### Producer Side
 ![alt text](images/2.png)
 ##### Consumer Side
@@ -109,10 +109,10 @@ Initially, we don't have any table into our database, it will be created when th
 ##### Database Side existing table but new column entry
 ![alt text](images/5.png)
 
-#### Wrong syntax or empty payload
+### Wrong syntax or empty payload
 In case of wrong syntax or empty payload these messages go in raw_data table into database, in order to have a track of misswritting json objects and for future [.......] 
 ![alt text](images/6.png)
-#### Json input error
+### Json input error
 In case that the consumer gets an completly wrong json automaticly ignore it.
 ![alt text](images/7.png)
 ![alt text](images/8.png)
