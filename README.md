@@ -2,10 +2,10 @@
 The aim of this project is to ingest incoming Kafka streaming messages and store those dynamically into a database without the mandatory existence of predefined SQL Tables.
 
 ## Table of Contents
--   [General Info](GeneralInfo)
--   [Technologies](Technologies)
--   [Getting started](Getting started)
--  [Examples of use](Examples of use)
+* [General Info](#General Info)  
+* [Technologies](#Technologies)
+* [Getting started](#Getting started) 
+* [Examples of use](#Examples of use) 
 
 ## General Info
 Data and logs that surround us need to be processed, reprocessed, analyzed and handled. Often in real time. That's what makes the core of the web, IoT, cloud-based and etc living today. And that's why Apache Kafka has come to play a significant role in the message streaming landscape. 
@@ -110,7 +110,7 @@ Initially, we don't have any table into our database, it will be created when th
 ![alt text](images/5.png)
 
 ### Wrong syntax or empty payload
-In case of wrong syntax or empty payload, these messages go in raw_data table into the database, in order to have a track of miss writing json objects for future.
+In case of wrong syntax or empty payload, these messages go in raw_data table into the database, in order to have a track of miss writing json objects for future investigation.
 ![alt text](images/6.png)
 ### Json input error
 In case that the consumer gets a completely wrong json automatically ignore it.
