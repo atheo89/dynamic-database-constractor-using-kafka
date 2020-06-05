@@ -49,14 +49,14 @@ def store_json_formatted_data(data,conn):
         kafka_payload_dict['PAYLOAD'] = dict((k.upper(), v) for k, v in kafka_payload_dict['PAYLOAD'] .items()) 
         kafka_payload_dict['PAYLOAD'] = dict((k.replace(" ",""), v) for k, v in kafka_payload_dict['PAYLOAD'] .items())    
 
-        table_name = (kafka_payload_dict['ITEMID'] + """_""" + kafka_payload_dict['TYPE']).replace(" ", "")
+        table_name = (kafka_payload_dict['DEVICEID'] + """_""" + kafka_payload_dict['TYPE']).replace(" ", "")
       
         cursor = conn.cursor()
 
         warnings.filterwarnings("ignore")
                     
         # Create table if not exist
-        create_table = "CREATE TABLE IF NOT EXISTS " + table_name + " (ID int NOT NULL AUTO_INCREMENT,PRIMARY KEY (ID), DB_TIME TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP, KAFKA_TIME varchar(255), ITEMID varchar(255) NOT NULL );"
+        create_table = "CREATE TABLE IF NOT EXISTS " + table_name + " (ID int NOT NULL AUTO_INCREMENT,PRIMARY KEY (ID), DB_TIME TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP, KAFKA_TIME varchar(255), DEVICEID varchar(255) NOT NULL );"
         cursor.execute(create_table)
         conn.commit()
 
@@ -73,8 +73,8 @@ def store_json_formatted_data(data,conn):
 
         # Insert data                   
         placeholder = ("%s,"*len(kafka_payload_dict['PAYLOAD']))+"%s,%s"
-        query_insert_data_values = [kafka_payload_dict['ITEMID'],kafka_payload_dict['KAFKA_TIME']] + list(kafka_payload_dict['PAYLOAD'].values())
-        query_insert_data = "insert into `{table}` ({columns}) values ({values});".format(table=table_name, columns="ITEMID,KAFKA_TIME,"+",".join(kafka_payload_dict['PAYLOAD'].keys()), values=placeholder)
+        query_insert_data_values = [kafka_payload_dict['DEVICEID'],kafka_payload_dict['KAFKA_TIME']] + list(kafka_payload_dict['PAYLOAD'].values())
+        query_insert_data = "insert into `{table}` ({columns}) values ({values});".format(table=table_name, columns="DEVICEID,KAFKA_TIME,"+",".join(kafka_payload_dict['PAYLOAD'].keys()), values=placeholder)
 
         cursor.execute(query_insert_data, query_insert_data_values)
         conn.commit()    
