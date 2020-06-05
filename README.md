@@ -41,7 +41,7 @@ pip install confluent_kafka
 Then, you need to set up a Database to store the incoming Kafka streaming messages. This project use phpMyAdmin through wamp. 
 Setup you database in your local machine here: [http://localhost/phpmyadmin/index.php](http://localhost/phpmyadmin/index.php)
 
-### Python Apache Kafka Consumer, ingests, creates table and insert data
+### Python Apache Kafka Consumer, ingests, creates and inserts data into tables
 Table and column creation
 ```
 # Create table if not exist
@@ -104,16 +104,16 @@ Initially, we don't have any table into our database, it will be created when th
 ![alt text](images/2.png)
 ##### Consumer Side
 ![alt text](images/3.png)
-##### Database Side new table
+##### Database Side new table record
 ![alt text](images/4.png)
 ##### Database Side existing table but new column entry
 ![alt text](images/5.png)
 
 ### Wrong syntax or empty payload
-In case of wrong syntax or empty payload these messages go in raw_data table into database, in order to have a track of misswritting json objects and for future [.......] 
+In case of wrong syntax or empty payload, these messages go in raw_data table into the database, in order to have a track of miss writing json objects for future.
 ![alt text](images/6.png)
 ### Json input error
-In case that the consumer gets an completly wrong json automaticly ignore it.
+In case that the consumer gets a completely wrong json automatically ignore it.
 ![alt text](images/7.png)
 ![alt text](images/8.png)
 
