@@ -9,7 +9,7 @@ The aim of this project is to ingest incoming Kafka streaming messages and store
 
 ## General Info
 Data and logs that surround us need to be processed, reprocessed, analyzed and handled. Often in real time. That's what makes the core of the web, IoT, cloud-based and etc living today. And that's why Apache Kafka has come to play a significant role in the message streaming landscape. 
-
+ 
 
 ## Technologies
 
