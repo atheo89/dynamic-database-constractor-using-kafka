@@ -96,7 +96,7 @@ Furthermore, the algorithm is able to handle:
 
 ## Examples of use
 #### New entry
-Initialy, we don't have any table into our database, it will created when the Kafka Producer send a json object to Kafka server cloud to triger our consumer which always looking for new messages and when there is a new then create a table and colums if not exist or writes the data values in the already existing tables.
+Initially, we don't have any table into our database, it will be created when the Kafka Producer sends a json object to Kafka server cloud to trigger our consumer which always looking for new messages when there is a new message then created a table and columns if not exist into the database or writes the data values in the already existing tables.
 ##### empty database
 ![alt text](images/1.png)
 ##### When we try our first entry
